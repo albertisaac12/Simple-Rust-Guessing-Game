@@ -63,3 +63,18 @@ https://chatgpt.com/share/677a9bcb-6dd0-8005-95ed-f23234ad3b29
       stdin() is an associated function of the std::io module. Specifically, it returns a handle to the standard input (std::io::Stdin), which is an object used for reading user input.
 
 ![Image of the Library Module and Associated Function](./Pictures/libmodasso.png)
+
+## NOTE
+
+The `.read_line(&mut guess)` always appends to the existing string
+
+**_references are immutable by default. Hence, you need to write `&mut guess` rather than &guess to make it mutable._**
+
+**`read_line` puts whatever the user enters into the string we pass to it, but it also returns a `Result` value. `Result` is an `enumeration`, often called an `enum`, which is a type that can be in one of multiple possible states. We call each possible state a `variant`.**
+
+**The Purpose of the `Result` types is to encode error-handling information**
+**Result’s variants are `Ok` and `Err`.**
+
+Values of the Result type, like values of any type, have methods defined on them. An instance of Result has an expect method that you can call. If this instance of Result is an Err value, expect will cause the program to crash and display the message that you passed as an argument to expect. If the read_line method returns an Err, it would likely be the result of an error coming from the underlying operating system. If this instance of Result is an Ok value, expect will take the return value that Ok is holding and return just that value to you so you can use it. In this case, that value is the number of bytes in the user’s input.
+
+If you don’t call expect, the program will compile, but you’ll get a warning
