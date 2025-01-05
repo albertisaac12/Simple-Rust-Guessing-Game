@@ -78,3 +78,7 @@ The `.read_line(&mut guess)` always appends to the existing string
 Values of the Result type, like values of any type, have methods defined on them. An instance of Result has an expect method that you can call. If this instance of Result is an Err value, expect will cause the program to crash and display the message that you passed as an argument to expect. If the read_line method returns an Err, it would likely be the result of an error coming from the underlying operating system. If this instance of Result is an Ok value, expect will take the return value that Ok is holding and return just that value to you so you can use it. In this case, that value is the number of bytes in the user’s input.
 
 If you don’t call expect, the program will compile, but you’ll get a warning
+
+## WHAT IS A CRATE ?
+
+**A `crate` is a collection of Rust source code files.** The project we’ve been building is a `binary crate`, which is an executable. The `rand crate` is a `library crate`, which contains code that is intended to be used in other programs and can’t be executed on its own.
