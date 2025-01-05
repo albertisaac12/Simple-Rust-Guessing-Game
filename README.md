@@ -42,3 +42,24 @@ The `.expect()` method is a convenient way to handle the Result type. It:
 
 1. Unwraps the Result: If the Result is Ok(value), it extracts the value.
 2. Panics on Error: If the Result is Err(error), it terminates the program and prints the provided error message (in this case, "Failed to read line").
+
+**A namespace provides a container to hold things like functions, classes and constants as a way to group them together logically and to help avoid conflicts with functions and classes with the same name that have been written by someone else.**
+
+**The `::` syntax is used in Rust for path resolution. It helps access items within a module, trait, or namespace**
+
+https://chatgpt.com/share/677a9bcb-6dd0-8005-95ed-f23234ad3b29
+
+1. std is a Library
+   1. The Standard Library is a precompiled collection of foundational utilities and tools provided by Rust.
+   2. It contains many modules (e.g., io, fs, thread) that group related functionality.
+2. io is a Module Inside std
+   1. std::io is one of the modules in the std library.
+   2. It provides functionality related to input and output, such as reading from the console, writing to files, and working with streams.
+3. stdin() is an Associated Function
+   1. What is an Associated Function?
+      It’s a function that is associated with a type but is not tied to a specific instance of that type.
+      It’s called directly on the type, not on an instance.
+   2. Where Does stdin() Belong?
+      stdin() is an associated function of the std::io module. Specifically, it returns a handle to the standard input (std::io::Stdin), which is an object used for reading user input.
+
+![Image of the Library Module and Associated Function](./Pictures/libmodasso.png)
