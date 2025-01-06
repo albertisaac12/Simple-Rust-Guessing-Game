@@ -82,3 +82,17 @@ If you don’t call expect, the program will compile, but you’ll get a warning
 ## WHAT IS A CRATE ?
 
 **A `crate` is a collection of Rust source code files.** The project we’ve been building is a `binary crate`, which is an executable. The `rand crate` is a `library crate`, which contains code that is intended to be used in other programs and can’t be executed on its own.
+
+---
+
+Traits in Rust are similar to interfaces in other languages. They provide a set of methods that types implementing the trait must define or can use if the methods are provided by the trait.
+
+`cargo doc --open` command will build documentation provided by all your dependencies locally and open it in your browser
+
+First we add another `use` statement, bringing a type called `std::cmp::Ordering` into scope from the standard library. The Ordering type is another `enum` and has the variants `Less, Greater, and Equal.` These are the three outcomes that are possible when you compare two values.
+
+The `parse` method on strings converts a string to another type. Here, we use it to convert from a string to a number.
+
+If `parse` is able to successfully turn the string into a number, it will return an `Ok` value that contains the resultant number. That Ok value will match the first arm’s pattern, and the match expression will just return the num value that parse produced and put inside the Ok value. That number will end up right where we want it in the new guess variable we’re creating.
+
+If parse is not able to turn the string into a number, it will return an `Err` value that contains more information about the error. The Err value does not match the Ok(num) pattern in the first match arm, but it does match the `Err(_)` pattern in the second arm. The underscore, `_`, is a `catchall value`; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So the program will execute the second arm’s code, continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!
